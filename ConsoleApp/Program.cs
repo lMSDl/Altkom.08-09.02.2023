@@ -1,94 +1,164 @@
 ﻿using System.Globalization;
 
 
-int a = 11;
-int b = 4;
+int value = int.Parse(Console.ReadLine());
 
-int c = a + b;
-Console.WriteLine($"{a} + {b} = {c}");
-c = a - b;
-Console.WriteLine($"{a} - {b} = {c}");
-c = a * b;
-Console.WriteLine($"{a} * {b} = {c}");
-c = a / b;
-Console.WriteLine($"{a} / {b} = {c}");
-c = a % b;
-Console.WriteLine($"{a} % {b} = {c}");
+// != - różne
+if(value != 0)
+{
+    Console.WriteLine($"Wartość {value} jest różne od 0");
+}
 
 
-c = a + a * a;
-Console.WriteLine($"{a} + {a} * {a} = {c}");
-c = (a + a) * a;
-Console.WriteLine($"({a} + {a}) * {a} = {c}");
+if( value > 0 )
+{
+    Console.WriteLine($"Wartość {value} jest większa od 0");
+}
+else
+{
+    Console.WriteLine($"Wartość {value} jest mniejsza lub równa 0");
+}
 
 
 
-float aa = 11.0f;
-float bb = 4f;
-float cc = aa + bb;
-Console.WriteLine($"{aa} + {bb} = {cc}");
-cc = aa - bb;
-Console.WriteLine($"{aa} - {bb} = {cc}");
-cc = aa * bb;
-Console.WriteLine($"{aa} * {bb} = {cc}");
-cc = aa / bb;
-Console.WriteLine($"{aa} / {bb} = {cc}");
+if (value > 0)
+{
+    Console.WriteLine($"Wartość {value} jest większa od 0");
+}
+else if (value < 0)
+{
+    Console.WriteLine($"Wartość {value} jest mniejsza od 0");
+}
+// == - podwójny znak równości oznacza porównanie (pojedynczy przypisanie)
+else if (value == 0)
+{
+    Console.WriteLine($"Wartość {value} jest równa 0");
+}
+
+Console.WriteLine("-----");
+
+if(value > 0)
+{
+    Console.WriteLine($"Wartość {value} jest większa od 0");
+}
+
+//if (value >= 0)
+// || - lub
+if (value > 0 || value == 0)
+{
+    Console.WriteLine($"Wartość {value} jest większa lub rózna 0");
+}
+
+//if (value == 0)
+// && - i
+// ! - negacja - wykrzyknik przed wyrażeniem
+if(!(value > 0) && !(value < 0))
+{
+    Console.WriteLine($"Wartość {value} jest równa 0");
+}
+
+if (value <= 0)
+if (value < 0 || value == 0)
+{
+    Console.WriteLine($"Wartość {value} jest mniejsza lub równa 0");
+}
+
+if (value < 0)
+{
+    Console.WriteLine($"Wartość {value} jest mniejsza od 0");
+}
+
+
+void NumbersDemo()
+{
+    int a = 11;
+    int b = 4;
+
+    int c = a + b;
+    Console.WriteLine($"{a} + {b} = {c}");
+    c = a - b;
+    Console.WriteLine($"{a} - {b} = {c}");
+    c = a * b;
+    Console.WriteLine($"{a} * {b} = {c}");
+    c = a / b;
+    Console.WriteLine($"{a} / {b} = {c}");
+    c = a % b;
+    Console.WriteLine($"{a} % {b} = {c}");
+
+
+    c = a + a * a;
+    Console.WriteLine($"{a} + {a} * {a} = {c}");
+    c = (a + a) * a;
+    Console.WriteLine($"({a} + {a}) * {a} = {c}");
 
 
 
-Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
-Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
-Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
-
-Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
-Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
-Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
-
-//dzielenie int przez float/double/decimal (albo odrwotnie) daje wynik w typie o wyższej precyzji
-Console.WriteLine(5 / 3.3f);
-Console.WriteLine(5 / 3.3d);
-Console.WriteLine(5 / 3.3m);
-
-//przepełnienie int
-a = int.MaxValue;
-Console.WriteLine($"a = {a}");
-Console.WriteLine($"a + 1 = {a + 1}");
+    float aa = 11.0f;
+    float bb = 4f;
+    float cc = aa + bb;
+    Console.WriteLine($"{aa} + {bb} = {cc}");
+    cc = aa - bb;
+    Console.WriteLine($"{aa} - {bb} = {cc}");
+    cc = aa * bb;
+    Console.WriteLine($"{aa} * {bb} = {cc}");
+    cc = aa / bb;
+    Console.WriteLine($"{aa} / {bb} = {cc}");
 
 
-int intMaxVal = int.MaxValue;
-long longMaxVal = long.MaxValue;
+
+    Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
+    Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
+    Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
+
+    Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
+    Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
+    Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
+
+    //dzielenie int przez float/double/decimal (albo odrwotnie) daje wynik w typie o wyższej precyzji
+    Console.WriteLine(5 / 3.3f);
+    Console.WriteLine(5 / 3.3d);
+    Console.WriteLine(5 / 3.3m);
+
+    //przepełnienie int
+    a = int.MaxValue;
+    Console.WriteLine($"a = {a}");
+    Console.WriteLine($"a + 1 = {a + 1}");
 
 
-long longVal = intMaxVal;
-Console.WriteLine(longVal);
-
-//rzutowanie
-int intVal = (int)1L;
-Console.WriteLine(intVal);
-//rzutowanie może przekłamać wynik jeśli jest spoza zakresu typu na który rzutujemy
-intVal = (int)longMaxVal;
-Console.WriteLine(intVal);
-
-float floatVal = int.MaxValue;
-Console.WriteLine(floatVal);
-
-floatVal = (float)double.MaxValue;
-Console.WriteLine(floatVal);
+    int intMaxVal = int.MaxValue;
+    long longMaxVal = long.MaxValue;
 
 
-//parsowanie/konwertowanie string na int
-string value = Console.ReadLine();
-intVal = int.Parse(value);
-int result = intVal * 2;
-Console.WriteLine($"{intVal} * 2 = {result}");
+    long longVal = intMaxVal;
+    Console.WriteLine(longVal);
+
+    //rzutowanie
+    int intVal = (int)1L;
+    Console.WriteLine(intVal);
+    //rzutowanie może przekłamać wynik jeśli jest spoza zakresu typu na który rzutujemy
+    intVal = (int)longMaxVal;
+    Console.WriteLine(intVal);
+
+    float floatVal = int.MaxValue;
+    Console.WriteLine(floatVal);
+
+    floatVal = (float)double.MaxValue;
+    Console.WriteLine(floatVal);
 
 
-//parsowanie/konwertowanie string na float
-value = Console.ReadLine();
-floatVal = float.Parse(value);
-float floatResult = floatVal * 2;
-Console.WriteLine($"{floatVal} * 2 = {floatResult}");
+    //parsowanie/konwertowanie string na int
+    string value = Console.ReadLine();
+    intVal = int.Parse(value);
+    int result = intVal * 2;
+    Console.WriteLine($"{intVal} * 2 = {result}");
 
+
+    //parsowanie/konwertowanie string na float
+    value = Console.ReadLine();
+    floatVal = float.Parse(value);
+    float floatResult = floatVal * 2;
+    Console.WriteLine($"{floatVal} * 2 = {floatResult}");
+}
 
 //Funckja o nazwie StringDemo, nie przyjmująca parametrów i nic nie zwracająca (void)
 void StringDemo()
