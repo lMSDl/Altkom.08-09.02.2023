@@ -1,5 +1,64 @@
 ﻿using System.Globalization;
 
+// I - inicjalizacja pętli - wykonuje się tylko raz na początku
+// II - warunek kontynuacji pętli - wykonuje się przed każym wykonaniem ciała
+// III - ciało funkcji
+// IV - akcja po wykonaniu ciałą funkcji - najczęściej inkrementacja licznika
+//for(I; II; IV)
+//{
+//  III
+//}
+
+for (int i = 0; i < 5; i++ /* i = i + 1 */)
+{
+    Console.WriteLine(i);
+}
+
+int value = 3;
+//pomijamy I etap
+for (; value < 5; value++ )
+{
+    Console.WriteLine(value);
+}
+
+//Pomijamy etap I i IV
+for (; value < 7;)
+{
+    Console.WriteLine(value);
+
+    value = value + 1;
+}
+
+//Pomijamy etap I, II i IV (pętla nieskończona)
+for (;;)
+{
+    if (value < 20)
+    {
+
+        Console.WriteLine(value);
+
+        value = value + 1;
+    }
+    else
+    {
+        break;
+    }
+}
+
+for (int i = 0; ; i++)
+{
+    if (i < 20)
+    {
+
+        Console.WriteLine(i);
+    }
+    else
+    {
+        break;
+    }
+}
+
+
 //pętla while sprawdza warunek przed wejściem do ciała (może się nigdy nie wykonać)
 bool exit = false;
 while(!exit)
@@ -11,6 +70,8 @@ while(!exit)
         case "exit":
             exit = true;
             break;
+        case "continue":
+            continue;
 
         default:
             Console.WriteLine(input);
@@ -36,6 +97,7 @@ do
     }
     else if (input == "continue")
     {
+        //continue przerywa wykonywanie ciałą pętli, ale przechodzi do kolejnej iteracji pętli
         continue;
     }
     else
