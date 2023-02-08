@@ -1,98 +1,148 @@
 ﻿using System.Globalization;
 
-
-int value = int.Parse(Console.ReadLine());
-
-// != - różne
-if(value != 0)
+//pętla while sprawdza warunek przed wejściem do ciała (może się nigdy nie wykonać)
+bool exit = false;
+while(!exit)
 {
-    Console.WriteLine($"Wartość {value} jest różne od 0");
-}
+    string input = Console.ReadLine();
 
-
-if( value > 0 )
-{
-    Console.WriteLine($"Wartość {value} jest większa od 0");
-}
-else
-{
-    Console.WriteLine($"Wartość {value} jest mniejsza lub równa 0");
-}
-
-
-
-if (value > 0)
-{
-    Console.WriteLine($"Wartość {value} jest większa od 0");
-}
-else if (value < 0)
-{
-    Console.WriteLine($"Wartość {value} jest mniejsza od 0");
-}
-// == - podwójny znak równości oznacza porównanie (pojedynczy przypisanie)
-else if (value == 0)
-{
-    Console.WriteLine($"Wartość {value} jest równa 0");
-}
-
-Console.WriteLine("-----");
-
-if(value > 0)
-{
-    Console.WriteLine($"Wartość {value} jest większa od 0");
-}
-
-//if (value >= 0)
-// || - lub
-if (value > 0 || value == 0)
-{
-    Console.WriteLine($"Wartość {value} jest większa lub rózna 0");
-}
-
-//if (value == 0)
-// && - i
-// ! - negacja - wykrzyknik przed wyrażeniem
-if(!(value > 0) && !(value < 0))
-{
-    Console.WriteLine($"Wartość {value} jest równa 0");
-}
-
-if (!(value > 0))
-{ 
-    if(!(value < 0))
+    switch (input)
     {
-        Console.WriteLine($"Wartość {value} jest równa 0");
+        case "exit":
+            exit = true;
+            break;
+
+        default:
+            Console.WriteLine(input);
+            break;
     }
 }
 
-//if (value <= 0)
-if (value < 0 || value == 0)
+//do-while sprawdza warunek po wykonaniu ciała - zawsze wykona się przynajmniej raz
+exit = false;
+int counter = 0;
+do
 {
-    Console.WriteLine($"Wartość {value} jest mniejsza lub równa 0");
-}
+    string input = Console.ReadLine();
 
-if (value < 0)
+    if(input == "exit")
+    {
+        exit = true;
+    }
+    else if(input == "break")
+    {
+        //break służy do przerywania pętli
+        break;
+    }
+    else if (input == "continue")
+    {
+        continue;
+    }
+    else
+    {
+        Console.WriteLine(input);
+    }
+
+    counter = counter + 1;
+
+} while (!exit);
+
+
+Console.WriteLine("End");
+
+void ConditionsDemo()
 {
-    Console.WriteLine($"Wartość {value} jest mniejsza od 0");
-}
+    int value = int.Parse(Console.ReadLine());
+
+    // != - różne
+    if (value != 0)
+    {
+        Console.WriteLine($"Wartość {value} jest różne od 0");
+    }
 
 
-
-
-switch (value)
-{
-    //case musi kończyć się instrukcją "break;"
-    case > 0:
+    if (value > 0)
+    {
         Console.WriteLine($"Wartość {value} jest większa od 0");
-        break;
-    case < 0:
-        Console.WriteLine($"Wartość {value} jest mniejsza od 0");
-        break;
-    case 0:
-        Console.WriteLine($"Wartość {value} jest równa 0");
-        break;
-}
+    }
+    else
+    {
+        Console.WriteLine($"Wartość {value} jest mniejsza lub równa 0");
+    }
 
+
+
+    if (value > 0)
+    {
+        Console.WriteLine($"Wartość {value} jest większa od 0");
+    }
+    else if (value < 0)
+    {
+        Console.WriteLine($"Wartość {value} jest mniejsza od 0");
+    }
+    // == - podwójny znak równości oznacza porównanie (pojedynczy przypisanie)
+    else if (value == 0)
+    {
+        Console.WriteLine($"Wartość {value} jest równa 0");
+    }
+
+    Console.WriteLine("-----");
+
+    if (value > 0)
+    {
+        Console.WriteLine($"Wartość {value} jest większa od 0");
+    }
+
+    //if (value >= 0)
+    // || - lub
+    if (value > 0 || value == 0)
+    {
+        Console.WriteLine($"Wartość {value} jest większa lub rózna 0");
+    }
+
+    //if (value == 0)
+    // && - i
+    // ! - negacja - wykrzyknik przed wyrażeniem
+    if (!(value > 0) && !(value < 0))
+    {
+        Console.WriteLine($"Wartość {value} jest równa 0");
+    }
+
+    if (!(value > 0))
+    {
+        if (!(value < 0))
+        {
+            Console.WriteLine($"Wartość {value} jest równa 0");
+        }
+    }
+
+    //if (value <= 0)
+    if (value < 0 || value == 0)
+    {
+        Console.WriteLine($"Wartość {value} jest mniejsza lub równa 0");
+    }
+
+    if (value < 0)
+    {
+        Console.WriteLine($"Wartość {value} jest mniejsza od 0");
+    }
+
+
+
+
+    switch (value)
+    {
+        //case musi kończyć się instrukcją "break;"
+        case > 0:
+            Console.WriteLine($"Wartość {value} jest większa od 0");
+            break;
+        case < 0:
+            Console.WriteLine($"Wartość {value} jest mniejsza od 0");
+            break;
+        case 0:
+            Console.WriteLine($"Wartość {value} jest równa 0");
+            break;
+    }
 
 Console.WriteLine("Jak masz na imię?");
 string name = Console.ReadLine();
@@ -111,8 +161,7 @@ switch(name)
         break;
 }
 
-
-
+}
 
 void NumbersDemo()
 {
