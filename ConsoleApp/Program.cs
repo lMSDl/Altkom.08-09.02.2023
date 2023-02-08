@@ -57,7 +57,15 @@ if(!(value > 0) && !(value < 0))
     Console.WriteLine($"Wartość {value} jest równa 0");
 }
 
-if (value <= 0)
+if (!(value > 0))
+{ 
+    if(!(value < 0))
+    {
+        Console.WriteLine($"Wartość {value} jest równa 0");
+    }
+}
+
+//if (value <= 0)
 if (value < 0 || value == 0)
 {
     Console.WriteLine($"Wartość {value} jest mniejsza lub równa 0");
@@ -67,6 +75,43 @@ if (value < 0)
 {
     Console.WriteLine($"Wartość {value} jest mniejsza od 0");
 }
+
+
+
+
+switch (value)
+{
+    //case musi kończyć się instrukcją "break;"
+    case > 0:
+        Console.WriteLine($"Wartość {value} jest większa od 0");
+        break;
+    case < 0:
+        Console.WriteLine($"Wartość {value} jest mniejsza od 0");
+        break;
+    case 0:
+        Console.WriteLine($"Wartość {value} jest równa 0");
+        break;
+}
+
+
+Console.WriteLine("Jak masz na imię?");
+string name = Console.ReadLine();
+
+switch(name)
+{
+    case "":
+        Console.WriteLine("Szkoda, że nie chcesz podać swojego imienia...");
+        break;
+    case "Siri":
+        Console.WriteLine("Hej! masz na imię tak jak asystent Apple?");
+        break;
+        //default - odpowiednik "else", obsługuje każdy inny przypadek nie pasujący do żadnego case
+    default:
+        Console.WriteLine($"Jak się masz {name}?");
+        break;
+}
+
+
 
 
 void NumbersDemo()
