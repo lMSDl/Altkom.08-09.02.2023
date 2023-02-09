@@ -1,53 +1,44 @@
 ﻿using System.Globalization;
 
 
-int a = 5;
+Models.Item item1 = new Models.Item("Item 1");
+Models.Item item2 = new Models.Item("Item 2");
+Models.Item item3 = new Models.Item("Item 3");
+
+//tworzymy tablicę z 3 wskazanych elementów
+Models.Item[] itemsArray = { item1, item2, item3 };
 
 
-a = Change(a);
+//do elementów tablicy odwołujemy się poprzez indekser, czyli wartość indeksu w nawiasach kwadratowych
+Console.WriteLine(itemsArray[2].Description);
+Console.WriteLine(itemsArray.Length);
+itemsArray[2] = itemsArray[0];
+Console.WriteLine(itemsArray[2].Description);
+item1.Description = "abc";
 
-Console.WriteLine(a);
 
-int Change(int a)
+//utworzenie nowej, pustej tablicy pięci elementowej
+itemsArray = new Models.Item[5];
+itemsArray[4] = new Models.Item();
+
+
+List<Models.Item> itemsList = new List<Models.Item>();
+itemsList.Add(item1);
+itemsList.Add(item2);
+itemsList.Add(item3);
+
+for (int i = 0; i < 10; i++)
 {
-    a = 10;
-    return a;
+    itemsList.Add(new Models.Item($"{i}"));
 }
 
-Models.Item item = new Models.Item("abc");
-ChangeItem(item);
+itemsList.Remove(item2);
+itemsList.RemoveAt(5);
 
-void ChangeItem(Models.Item item)
-{
-    item.Description = "bca";
-}
-
-Models.ItemStruct itemStruct = new Models.ItemStruct("abc");
-ChangeItemStruct(itemStruct);
-
-void ChangeItemStruct(Models.ItemStruct item)
-{
-    item.Description = "bca";
-}
+itemsList.Clear();
 
 
-
-//utworzenie obiektu (instancji klasy) - używany "new" oraz kontruktora
-Models.Item myItem = new Models.Item();
-
-myItem.Description = "ala ma kota";
-myItem.SetValue(3);
-
-Console.WriteLine(myItem.GetValue());
-Console.WriteLine(myItem.Description);
-
-Models.Item mySecondItem = new Models.Item("i dwa psy", 123);
-
-Console.WriteLine(mySecondItem.GetValue());
-Console.WriteLine(mySecondItem.Description);
-
-
-Models.Item myThirdItem = new Models.Item("Jestem trzeci");
+Console.WriteLine();
 
 void ConditionsDemo()
 {
@@ -451,5 +442,57 @@ void Tree()
             Console.Write("*");
         }
         Console.WriteLine();
+    }
+}
+
+static void Classes()
+{
+    //utworzenie obiektu (instancji klasy) - używany "new" oraz kontruktora
+    Models.Item myItem = new Models.Item();
+
+    myItem.Description = "ala ma kota";
+    myItem.SetValue(3);
+
+    Console.WriteLine(myItem.GetValue());
+    Console.WriteLine(myItem.Description);
+
+    Models.Item mySecondItem = new Models.Item("i dwa psy", 123);
+
+    Console.WriteLine(mySecondItem.GetValue());
+    Console.WriteLine(mySecondItem.Description);
+
+
+    Models.Item myThirdItem = new Models.Item("Jestem trzeci");
+}
+
+static void ClassVsStruct()
+{
+    int a = 5;
+
+
+    a = Change(a);
+
+    Console.WriteLine(a);
+
+    int Change(int a)
+    {
+        a = 10;
+        return a;
+    }
+
+    Models.Item item = new Models.Item("abc");
+    ChangeItem(item);
+
+    void ChangeItem(Models.Item item)
+    {
+        item.Description = "bca";
+    }
+
+    Models.ItemStruct itemStruct = new Models.ItemStruct("abc");
+    ChangeItemStruct(itemStruct);
+
+    void ChangeItemStruct(Models.ItemStruct item)
+    {
+        item.Description = "bca";
     }
 }
