@@ -1,5 +1,37 @@
 ﻿using System.Globalization;
 
+
+int a = 5;
+
+
+a = Change(a);
+
+Console.WriteLine(a);
+
+int Change(int a)
+{
+    a = 10;
+    return a;
+}
+
+Models.Item item = new Models.Item("abc");
+ChangeItem(item);
+
+void ChangeItem(Models.Item item)
+{
+    item.Description = "bca";
+}
+
+Models.ItemStruct itemStruct = new Models.ItemStruct("abc");
+ChangeItemStruct(itemStruct);
+
+void ChangeItemStruct(Models.ItemStruct item)
+{
+    item.Description = "bca";
+}
+
+
+
 //utworzenie obiektu (instancji klasy) - używany "new" oraz kontruktora
 Models.Item myItem = new Models.Item();
 
