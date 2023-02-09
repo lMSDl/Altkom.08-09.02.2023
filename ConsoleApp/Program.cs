@@ -1,116 +1,14 @@
 ﻿using System.Globalization;
 
-// I - inicjalizacja pętli - wykonuje się tylko raz na początku
-// II - warunek kontynuacji pętli - wykonuje się przed każym wykonaniem ciała
-// III - ciało funkcji
-// IV - akcja po wykonaniu ciałą funkcji - najczęściej inkrementacja licznika
-//for(I; II; IV)
-//{
-//  III
-//}
+//utworzenie obiektu (instancji klasy) - używany "new" oraz kontruktora
+Models.Item myItem = new Models.Item();
 
-for (int i = 0; i < 5; i++ /* i = i + 1 */)
-{
-    Console.WriteLine(i);
-}
+myItem.Description = "ala ma kota";
+myItem.SetValue(3);
 
-int value = 3;
-//pomijamy I etap
-for (; value < 5; value++ )
-{
-    Console.WriteLine(value);
-}
+Console.WriteLine(myItem.GetValue());
+Console.WriteLine(myItem.Description);
 
-//Pomijamy etap I i IV
-for (; value < 7;)
-{
-    Console.WriteLine(value);
-
-    value = value + 1;
-}
-
-//Pomijamy etap I, II i IV (pętla nieskończona)
-for (;;)
-{
-    if (value < 20)
-    {
-
-        Console.WriteLine(value);
-
-        value = value + 1;
-    }
-    else
-    {
-        break;
-    }
-}
-
-for (int i = 0; ; i++)
-{
-    if (i < 20)
-    {
-
-        Console.WriteLine(i);
-    }
-    else
-    {
-        break;
-    }
-}
-
-
-//pętla while sprawdza warunek przed wejściem do ciała (może się nigdy nie wykonać)
-bool exit = false;
-while(!exit)
-{
-    string input = Console.ReadLine();
-
-    switch (input)
-    {
-        case "exit":
-            exit = true;
-            break;
-        case "continue":
-            continue;
-
-        default:
-            Console.WriteLine(input);
-            break;
-    }
-}
-
-//do-while sprawdza warunek po wykonaniu ciała - zawsze wykona się przynajmniej raz
-exit = false;
-int counter = 0;
-do
-{
-    string input = Console.ReadLine();
-
-    if(input == "exit")
-    {
-        exit = true;
-    }
-    else if(input == "break")
-    {
-        //break służy do przerywania pętli
-        break;
-    }
-    else if (input == "continue")
-    {
-        //continue przerywa wykonywanie ciałą pętli, ale przechodzi do kolejnej iteracji pętli
-        continue;
-    }
-    else
-    {
-        Console.WriteLine(input);
-    }
-
-    counter = counter + 1;
-
-} while (!exit);
-
-
-Console.WriteLine("End");
 
 void ConditionsDemo()
 {
@@ -206,22 +104,22 @@ void ConditionsDemo()
             break;
     }
 
-Console.WriteLine("Jak masz na imię?");
-string name = Console.ReadLine();
+    Console.WriteLine("Jak masz na imię?");
+    string name = Console.ReadLine();
 
-switch(name)
-{
-    case "":
-        Console.WriteLine("Szkoda, że nie chcesz podać swojego imienia...");
-        break;
-    case "Siri":
-        Console.WriteLine("Hej! masz na imię tak jak asystent Apple?");
-        break;
+    switch (name)
+    {
+        case "":
+            Console.WriteLine("Szkoda, że nie chcesz podać swojego imienia...");
+            break;
+        case "Siri":
+            Console.WriteLine("Hej! masz na imię tak jak asystent Apple?");
+            break;
         //default - odpowiednik "else", obsługuje każdy inny przypadek nie pasujący do żadnego case
-    default:
-        Console.WriteLine($"Jak się masz {name}?");
-        break;
-}
+        default:
+            Console.WriteLine($"Jak się masz {name}?");
+            break;
+    }
 
 }
 
@@ -377,4 +275,142 @@ void StringDemo()
     //zastąpienie części ciągu znaków - niezależnie od wielkości liter
     output = output.Replace("your", "My", true, CultureInfo.CurrentCulture);
     Console.WriteLine(output);
+}
+
+void Loops()
+{
+    // I - inicjalizacja pętli - wykonuje się tylko raz na początku
+    // II - warunek kontynuacji pętli - wykonuje się przed każym wykonaniem ciała
+    // III - ciało funkcji
+    // IV - akcja po wykonaniu ciałą funkcji - najczęściej inkrementacja licznika
+    //for(I; II; IV)
+    //{
+    //  III
+    //}
+
+    for (int i = 0; i < 5; i++ /* i = i + 1 */)
+    {
+        Console.WriteLine(i);
+    }
+
+    int value = 3;
+    //pomijamy I etap
+    for (; value < 5; value++)
+    {
+        Console.WriteLine(value);
+    }
+
+    //Pomijamy etap I i IV
+    for (; value < 7;)
+    {
+        Console.WriteLine(value);
+
+        value = value + 1;
+    }
+
+    //Pomijamy etap I, II i IV (pętla nieskończona)
+    for (; ; )
+    {
+        if (value < 20)
+        {
+
+            Console.WriteLine(value);
+
+            value = value + 1;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    for (int i = 0; ; i++)
+    {
+        if (i < 20)
+        {
+
+            Console.WriteLine(i);
+        }
+        else
+        {
+            break;
+        }
+    }
+
+
+    //pętla while sprawdza warunek przed wejściem do ciała (może się nigdy nie wykonać)
+    bool exit = false;
+    while (!exit)
+    {
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "exit":
+                exit = true;
+                break;
+            case "continue":
+                continue;
+
+            default:
+                Console.WriteLine(input);
+                break;
+        }
+    }
+
+    //do-while sprawdza warunek po wykonaniu ciała - zawsze wykona się przynajmniej raz
+    exit = false;
+    int counter = 0;
+    do
+    {
+        string input = Console.ReadLine();
+
+        if (input == "exit")
+        {
+            exit = true;
+        }
+        else if (input == "break")
+        {
+            //break służy do przerywania pętli
+            break;
+        }
+        else if (input == "continue")
+        {
+            //continue przerywa wykonywanie ciałą pętli, ale przechodzi do kolejnej iteracji pętli
+            continue;
+        }
+        else
+        {
+            Console.WriteLine(input);
+        }
+
+        counter = counter + 1;
+
+    } while (!exit);
+
+
+    Console.WriteLine("End");
+}
+
+void Tree()
+{
+    int userInput = 5;
+
+    int limit = userInput * 2 - 1;
+    for (int i = 1; i <= userInput; i++)
+    {
+
+        int stars = i * 2 - 1;
+        int spaces = (limit - stars) / 2;
+
+        for (int j = 0; j < spaces; j++)
+        {
+            Console.Write(" ");
+        }
+        for (int j = 0; j < stars; j++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+    }
 }
