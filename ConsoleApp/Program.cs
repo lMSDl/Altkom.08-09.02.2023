@@ -29,16 +29,40 @@ itemsList.Add(item3);
 
 for (int i = 0; i < 10; i++)
 {
+    if (i < itemsArray.Length)
+        itemsArray[i] = new Models.Item($"item {i}");
+
     itemsList.Add(new Models.Item($"{i}"));
 }
 
 itemsList.Remove(item2);
 itemsList.RemoveAt(5);
 
+
+for (int i = 0; i < itemsArray.Length; i++)
+{
+    Models.Item arrayItem = itemsArray[i];
+
+    Console.WriteLine(arrayItem.Description);
+}
+
+//foreach zwraca po kolei wszystkie elementy wkazanej kolekcji
+foreach(Models.Item listItem in itemsList)
+{
+    Console.WriteLine(listItem.Description);
+}
+
 itemsList.Clear();
 
 
+List<int> intsList = new List<int>();
+intsList.Add(2);
+
+
 Console.WriteLine();
+
+
+
 
 void ConditionsDemo()
 {
