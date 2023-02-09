@@ -26,12 +26,11 @@ namespace Models
             this.value = value;
         }
 
+        //klasa może posiadać dowolną liczbę konstruktorów o ile różnią się ilością i typami parametrów
         public Item(string description)
         {
             Description = description;
         }
-
-
 
 
         //brak modyfikatora dostępu == private - oznacza dostęp tylko dla klasy w której się znajduje
