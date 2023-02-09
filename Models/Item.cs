@@ -6,6 +6,34 @@ namespace Models
     //public - modyfikator dotępu oznaczający, ze klasa jest dostępna wszędzie
     public class Item
     {
+
+        //konstruktor bezparametrowy
+        //kontruktor jest metodą (jak każda inna), którą charakteryzuje brak zwracanego typu
+        //nazwa tej metody konstrukcyjnej MUSI być taka sama jak nazwa klasy
+        //jeśli w klasie nie ma zadnego konstruktora, to niejawnie zostanie wygenerowany konstruktor domyślny, wyglądający jak ponizej
+        public Item()
+        {
+
+        }
+
+
+        //konstruktor parametrowy - służy do zapewnienia klasie wartości początkowych dla pól i właściwości
+        //jeśli w klasie występuje konstruktor z parametrami, to domyślny konstruktor nie zostanie wygenerowany
+        //chcąć posiadać też konstruktor bezparametrowy należy go dodatkowo utworzyć
+        public Item(string description, int value)
+        {
+            Description = description;
+            this.value = value;
+        }
+
+        public Item(string description)
+        {
+            Description = description;
+        }
+
+
+
+
         //brak modyfikatora dostępu == private - oznacza dostęp tylko dla klasy w której się znajduje
         //prywatna zmienna globalna / pole
         private int value;

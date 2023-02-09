@@ -9,6 +9,13 @@ myItem.SetValue(3);
 Console.WriteLine(myItem.GetValue());
 Console.WriteLine(myItem.Description);
 
+Models.Item mySecondItem = new Models.Item("i dwa psy", 123);
+
+Console.WriteLine(mySecondItem.GetValue());
+Console.WriteLine(mySecondItem.Description);
+
+
+Models.Item myThirdItem = new Models.Item("Jestem trzeci");
 
 void ConditionsDemo()
 {
